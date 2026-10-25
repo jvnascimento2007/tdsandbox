@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topdown Sandbox</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+        canvas {
+            outline: 1px solid black;
+        }
+        p {
+            margin: 1.5rem;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="page-title">Topdown Sandbox</h1>
+    <canvas id="tdsandbox"></canvas>
+    <p id="page-description"></p>
+    <p>Press Z to place and X to erase</p>
+    <script src="tdsandbox.js"></script>
+</body>
+</html>
