@@ -3,29 +3,30 @@ export class Keyboard {
         this.context = context
         this.cameraOffsetX = 0
         this.cameraOffsetY = 0
+        this.cameraSpeed = 1
     }
 
     cameraHandler(key) {
         const { config } = this.context
 
         if(key.code == 'ArrowLeft') {
-            if(this.cameraOffsetX > 0) {
-                this.cameraOffsetX -= 1
+            if(this.cameraOffsetX > 0.0) {
+                this.cameraOffsetX -= this.cameraSpeed
             }
         }
         if(key.code == 'ArrowRight') {
             if(this.cameraOffsetX + config.columns < config.max_columns) {
-                this.cameraOffsetX += 1
+                this.cameraOffsetX += this.cameraSpeed
             }
         }
         if(key.code == 'ArrowUp') {
-            if(this.cameraOffsetY > 0) {
-                this.cameraOffsetY -= 1
+            if(this.cameraOffsetY > 0.0) {
+                this.cameraOffsetY -= this.cameraSpeed
             }
         }
         if(key.code == 'ArrowDown') {
             if(this.cameraOffsetY + config.rows < config.max_rows) {
-                this.cameraOffsetY += 1
+                this.cameraOffsetY += this.cameraSpeed
             }
         }
     }

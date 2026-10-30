@@ -39,26 +39,46 @@ export class World {
     }
 
     find(id) {
-        let start = 0;
-        let end = this.cells.length - 1;
+        let start = 0
+        let end = this.cells.length - 1
 
         if(!this.sorted) {
             this.sort()
         }
 
         while (start <= end) {
-            let middle = Math.floor((start + end) / 2);
+            let middle = Math.floor((start + end) / 2)
 
             if (this.cells[middle].id === id) {
-                return middle;
+                return middle
             } else if (this.cells[middle].id < id) {
-                start = middle + 1;
+                start = middle + 1
             } else {
-                end = middle - 1;
+                end = middle - 1
             }
         }
 
-        return -1;
+        return -1
+    }
+
+    download(filename = '') {
+        if(!filename) {
+            const ts = new Date().toISOString().slice(0, 19).replace("T", "_").replace(/:/g, "-")
+            filename = ts + '.json'
+        }
+
+        const json = JSON.stringify(this.cells, null, 2)
+        const blob = new Blob([json], { type: "application/json" })
+        const url = URL.createObjectURL(blob)
+
+        const a = document.createElement("a")
+        a.href = url
+        a.download = filename
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+
+        URL.revokeObjectURL(url)
     }
 
     render(canvasContext) {
