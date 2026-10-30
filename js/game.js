@@ -64,14 +64,14 @@ class Game {
     drawCellsWireframe() {
         this.canvasContext.strokeStyle = 'rgb(200, 200, 200)'
 
-        var num_of_cells = 0
+        for(var i = 0; i < config.rows + 1; i++) {
+            for(var j = 0; j < config.columns + 1; j++) {
+                const x = j * config.cell_width
+                const y = i * config.cell_height
 
-        for(var i = 0; i < config.rows; i++) {
-            for(var j = 0; j < config.columns; j++) {
                 this.canvasContext.beginPath()
-                this.canvasContext.strokeRect(j * config.cell_width, i * config.cell_height, config.cell_width, config.cell_height)
+                this.canvasContext.strokeRect(x, y, config.cell_width, config.cell_height)
                 this.canvasContext.closePath()
-                num_of_cells++
             }
         }
     }
@@ -95,3 +95,5 @@ class Game {
 
 const game = new Game()
 game.render()
+
+export { game }
