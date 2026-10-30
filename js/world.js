@@ -81,6 +81,25 @@ export class World {
         URL.revokeObjectURL(url)
     }
 
+    async load(file) {
+        const text = await file.text()
+        const data = JSON.parse(text)
+
+        if(!Array.isArray(data)) {
+            throw new Error("O arquivo precisa conter uma lista (array) de objetos.")
+        }
+
+        const isObjects = data.every(
+            (item) => item !== null && typeof item === "object" && !Array.isArray(item)
+        )
+
+        if(!isObjects) {
+            throw new Error("Todos os itens da lista devem ser objetos.")
+        }
+
+        this.cells = data
+    }
+
     render(canvasContext) {
         const { config, world, keyboard } = this.context
 
