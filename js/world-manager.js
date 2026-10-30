@@ -6,7 +6,13 @@ worldDownloadButton.addEventListener('click', (e) => {
 
     const { world } = game.context
 
-    world.download()
+    const filename = document.getElementById('world-filename').value
+
+    if(!filename) {
+        world.download()
+    } else {
+        world.download(filename)
+    }
 
 })
 

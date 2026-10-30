@@ -31,7 +31,7 @@
             display: flex;
             gap: 10px;
         }
-        #world-download, #world-load {
+        .world-fieldset {
             padding: 10px;
         }
         #world-download > legend, #world-load > legend {
@@ -49,12 +49,12 @@
     <p id="page-description"></p>
     <p>Press Z to place and X to erase</p>
     <div id="world-manager">
-        <fieldset id="world-download">
+        <fieldset class="world-fieldset">
             <legend>Baixar mundo</legend>
-            <input type="text" name="MUNDO-filename" id="world-filename" placeholder="nome-do-arquivo.json">
+            <input type="text" name="world-filename" id="world-filename" placeholder="nome-do-arquivo.json">
             <button id="world-download">BAIXAR MUNDO</button>
         </fieldset>
-        <fieldset id="world-load">
+        <fieldset class="world-fieldset">
             <legend>Carregar mundo</legend>
             <input type="file" name="world-load" id="world-load">
         </fieldset>
